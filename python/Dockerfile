@@ -1,6 +1,4 @@
-FROM python:3.10-alpine
-
-RUN apk add --no-cache g++
+FROM python:3.10-bullseye
 
 WORKDIR /app
 
