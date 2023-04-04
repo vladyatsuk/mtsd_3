@@ -1,4 +1,4 @@
-FROM golang AS builder
+FROM golang as builder
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ RUN CGO_ENABLED=0 go build -ldflags "-w -s -extldflags '-static'" -o build/fizzb
 
 FROM scratch
 
-COPY --from=builder /app/build/fizzbuzz /
+COPY --from=builder /app/build/fizzbuzz /build/
 
 COPY --from=builder /app/templates/index.html /templates/
 
